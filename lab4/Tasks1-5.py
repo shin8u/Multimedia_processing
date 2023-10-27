@@ -87,7 +87,6 @@ def main(path, standard_deviation, kernel_size, bound_path):
         for j in range(img.shape[1]):
             matr_gradient[i][j] = np.sqrt(img_Gx[i][j] ** 2 + img_Gy[i][j] ** 2)
 
-    #каждый пиксель заменяется на значение угла градиента в соответствии с его градиентами по горизонтали и вертикали.
     img_angles = img.copy()
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
@@ -106,7 +105,6 @@ def main(path, standard_deviation, kernel_size, bound_path):
             img_angles_to_print[i][j] = img_angles[i][j] / 7 * 255
     print(img_angles_to_print)
 
-    # 3
     img_border_no_filter = img.copy()
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
