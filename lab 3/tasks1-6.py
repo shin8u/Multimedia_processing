@@ -28,12 +28,9 @@ def GaussBlur(img, kernel_size, standard_deviation):
     imgBlur = img.copy()
     x_start = kernel_size // 2
     y_start = kernel_size // 2
-    for i in range(x_start, imgBlur.shape[0] - x_start):
+     for i in range(x_start, imgBlur.shape[0] - x_start):
         for j in range(y_start, imgBlur.shape[1] - y_start):
-            val = 0
-            for k in range(-(kernel_size // 2), kernel_size // 2 + 1):
-                for l in range(-(kernel_size // 2), kernel_size // 2 + 1):
-                    val += img[i + k, j + l] * kernel[k + (kernel_size // 2), l + (kernel_size // 2)]
+            val = np.sum(img[i - kernel_size//2: i + kernel_size//2 + 1, j - kernel_size//2: j + kernel_size//2 + 1] * kernel)
             imgBlur[i, j] = val
 
     return imgBlur
